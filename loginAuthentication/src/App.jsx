@@ -1,5 +1,6 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
+import { handleGoogleLogin } from "./Config";
 
 function App() {
   return (
@@ -61,7 +62,7 @@ function App() {
           </div>
 
           {/* Google Login Button */}
-          <button
+          <button onClick={()=>handleGoogleLogin()}
             type="button"
             className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-gray-700 hover:bg-gray-600 text-white font-medium transition"
           >
