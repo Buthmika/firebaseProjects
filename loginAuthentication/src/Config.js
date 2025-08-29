@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth,signInWithPopup,GoogleAuthProvider } from "firebase/auth";
+import { getAuth,signInWithEmailAndPassword,signInWithPopup,GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCS33OlPWE0gyJgf7scittr76xqbFdTJnU",
@@ -25,6 +25,18 @@ const handleGoogleLogin=async(setError)=>{
   catch(err){
     console.log(err);
     setError('Google Sign-In Failed');
+  }
+}
+//handle login using email and password
+const handleSubmit=async(e.setError)=>{
+  e.preventDefault();
+  const email=e.target.email.value;
+  const password=e.target.password.value;
+  try{
+    
+  }
+  catch(err){
+    
   }
 }
 export {auth,googleProvider,handleGoogleLogin};     
