@@ -1,8 +1,10 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
-import { handleGoogleLogin } from "./Config";
+import { handleGoogleLogin,handleSubmit } from "./Config";
 
 function App() {
+  const [error, setError] = React.useState("");
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
       <div className="w-full max-w-md p-8 bg-gray-800 rounded-2xl shadow-xl border border-gray-700">
@@ -12,8 +14,15 @@ function App() {
         </h1>
         <p className="text-center text-gray-400 mb-6">Login to your Account</p>
 
+        {/* Error Message */}
+        {error && (
+          <div className="mb-4 text-red-500 text-center text-sm">
+            {error}
+          </div>
+        )}
+
         {/* Form */}
-        <form className="space-y-5">
+        <form  onSubmit={(e)=>handleSubmit(e,setError)}className="space-y-5">
           <div>
             <label
               htmlFor="email"
