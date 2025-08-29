@@ -28,15 +28,19 @@ const handleGoogleLogin=async(setError)=>{
   }
 }
 //handle login using email and password
-const handleSubmit=async(e.setError)=>{
+const handleSubmit = async (e, setError) => {
   e.preventDefault();
-  const email=e.target.email.value;
-  const password=e.target.password.value;
-  try{
-    
+  const email = e.target.email.value;
+  const password = e.target.password.value;
+  try {
+    const userCred = await signInWithEmailAndPassword(auth, email, password);
+    console.log('Login Successful:', userCred.user);
+    setError('');
   }
-  catch(err){
-    
+  catch (err) {
+    console.log(err);
+    setError('Login Failed');
   }
+  e.target.reset();
 }
-export {auth,googleProvider,handleGoogleLogin};     
+export {auth,googleProvider,handleGoogleLogin,handleSubmit};     
